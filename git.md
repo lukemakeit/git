@@ -21,6 +21,7 @@ $git reflog
 查看所有分支：git branch  
 创建新分支：git branch <new_branch_name>  
 切换到分支：git checkout <branch_name>  
+
 ###撤销操作
 -  **修改最后一次提交**  
 有时候我们提交完了才发现漏掉了几个文件没有加，或者提交信息写错了。想要撤消刚才的提交操作，可以使用 --amend 选项重新提交：	  
@@ -38,6 +39,7 @@ $git commit --amemd
 
 -  取消对文件的修改  
 	对于在stage area中文件（也就是git add后的文件但是还没有git commit的文件），可以使用git checkout -- <file>来撤销对文件的修改  (这个命令，git status会有提示)  
+
 ###远程仓库的使用
  - 查看远程仓库： 
 	 - git remote命令会列出指定的每个远程服务器的简写；如果你已经clone了自己的仓库，至少origin-这是git为你clone的仓库服务器的默认名字;
@@ -53,7 +55,8 @@ $git commit --amemd
 	koke      git://github.com/koke/grit.git (push)
 	origin    git@github.com:mojombo/grit.git (fetch)
 	origin    git@github.com:mojombo/grit.git (push)	</code></pre>
-	 -	git remote show [remote\_name]可以查看远程仓库更加详细的信息
+	 -	git remote show [remote\_name]可以查看远程仓库更加详细的信息  
+
 ###添加远程仓库
  -  git remote add <\shortname> <\url>可以添加一个新的远程仓库，同时制定一个你可以轻松引用的简写（**在我看来同一个项目可能很多人在开发，那么可定有很多人有仓库，那么在这同一个文件夹下，就可以把多个人的开发的仓库添加进来**）：<pre><code>
 $ git remote add pb https://github.com/paulboone/ticgit
@@ -77,9 +80,11 @@ From https://github.com/paulboone/ticgit
 	 - git fetch [remote\_name]会去拉取分支但不会自动合并到自己的本地分支上；
 	 - git pull [remote\_name] [local\_name] master不仅会去拉取分支还会将其合并到自己的本地分支上，运行 git pull 通常会从最初克隆的服务器上抓取数据并自动尝试合并到当前所在的分支。
 	 - 默认情况下，git clone 命令会自动设置本地 master 分支跟踪克隆的远程仓库的 master 分支（或不管是什么名字的默认分支）；
+
 ###推送到远程仓库
  -  git push origin master  
  只有当你有所克隆**服务器的写入权限**，并且之前没有人推送过时，这条命令才能生效。 **当你和其他人在同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会毫无疑问地被拒绝。 你必须先将他们的工作拉取下来并将其合并进你的工作后才能推送。**
+
 ###远程仓库的移除和重命名  
  - git remote rename pb pull
  - git remote rm [remote\_name]
